@@ -9,7 +9,13 @@ function deObjetoAmatriz(objeto){
       B: 2,
       C: 3
     }) ➞ [["D", 1], ["B", 2], ["C", 3]]*/
+    // en el push entro a el valor del objeto objeto[clave]
   //Escribe tu código aquí
+  var nuevoArray = [];
+  for (clave in objeto){
+    nuevoArray.push([clave, objeto[clave]])
+  }
+return nuevoArray
 }
 
 
@@ -18,6 +24,14 @@ function numberOfCharacters(string) {
   //en formato par clave-valor.
   //Ej: Recibe ---> "adsjfdsfsfjsdjfhacabcsbajda" || Devuelve ---> { a: 5, b: 2, c: 2, d: 4, f: 4, h:1, j: 4, s: 5 } 
   //Escribe tu código aquí
+  nuevoObjeto = {}
+  for (let i = 0; i < string.length; i++){
+    if (!nuevoObjeto[string[i]]){
+      nuevoObjeto[string[i]] = 0
+    }
+    nuevoObjeto[string[i]] += 1
+  }
+return nuevoObjeto
 }
 
 
@@ -26,6 +40,18 @@ function capToFront(s) {
   //al principio de la palabra.
   //Ejemplo: soyHENRY -> HENRYsoy
   //Escribe tu código aquí
+  var mayusculas = ""
+  var minusculas = ""
+  for (let i = 0 ; i<s.length; i++){
+    if (s[i] === s[i].toUpperCase()){
+
+   var mayusculas = mayusculas + s[i]
+  //  el string mayuscula es igual al string vacio mas la letra que le sumamos.
+  } else{ 
+  var minusculas = minusculas + s[i];
+  }
+}
+return mayusculas + minusculas
 }
 
 
@@ -35,7 +61,24 @@ function asAmirror(str) {
   //pero con cada una de sus palabras invertidas, como si fuera un espejo.
   //Ej: Recibe ---> "The Henry Challenge is close!" || Devuelve ---> "ehT yrneH egnellahC si !esolc"
   //Escribe tu código aquí
-} 
+
+    var fraseInvertida = ""
+  for (let i = str.length-1; i>= 0; i--){
+    fraseInvertida += str[i]
+  }
+  return fraseInvertida.split(" ").reverse().join(" ")
+}
+
+  
+
+
+// no sirve porque push es p arreglo? 
+//   var fraseInvertida = []
+//   for (let i = 0; i> str.length; i--){
+//     fraseInvertida.push(str[i])
+//   }
+//   return fraseInvertida
+// } 
 
 
 function capicua(numero){
@@ -43,6 +86,14 @@ function capicua(numero){
   //La misma debe retornar: "Es capicua" si el número se número que se lee igual de 
   //izquierda a derecha que de derecha a izquierda. Caso contrario retorna "No es capicua"
   //Escribe tu código aquí
+  var miNumero = numero.toString()
+  var numeroInvertido = numero.toString().split("").reverse().join("");
+  
+    if ( miNumero === numeroInvertido){
+      return "Es capicua"
+    } else{
+      return "No es capicua"
+    }
 }
 
 
@@ -50,13 +101,42 @@ function deleteAbc(cadena){
   //Define una función que elimine las letras "a", "b" y "c" de la cadena dada 
   //y devuelva la versión modificada o la misma cadena, en caso de contener dichas letras.
   //Escribe tu código aquí
+var sinAbc = "";
+for (let i = 0; i< cadena.length; i++){
+  if (cadena[i] === "a" || cadena[i] === "b" || cadena[i] === "c"){
+    continue;
+  }else{
+    sinAbc = sinAbc + cadena[i]
+  }
 }
+return sinAbc
+}
+
+
+
 
 
 function sortArray(arr) {
   //La función recibe una matriz de strings. Ordena la matriz en orden creciente de longitudes de cadena
   //Ej: Recibe ---> ["You", "are", "beautiful", "looking"] || Devuelve ---> [“You", "are", "looking", "beautiful"]
   //Escribe tu código aquí
+  // nuevoArray = [arr]
+  // nuevoArray.forEach(function(elemento){
+  //   elemento.length
+  // }
+  
+//   function ordenCreciente (a, b){
+//     if (a.length < b.length) return -1;
+
+//     if (a.length > b.length) return 1;
+
+//     if (a.length = b.length) return 0
+//   }
+//   return arr.sort(function(a, b))
+
+//   // for (var i=0; i<arr.length -1; i++){
+//   //   if (arr[i].length < arr[i + 1].length)
+//   // }
 }
 
 
@@ -66,6 +146,19 @@ function buscoInterseccion(arreglo1, arreglo2){
   //Si no tienen elementos en común, retornar un arreglo vacío.
   //Aclaración: los arreglos no necesariamente tienen la misma longitud
   //Escribe tu código aquí  
+// arreglo1 = [4,3,7]
+// arreglo2= [2,7,18]
+ var arregloDefinitivo = [];
+
+ for (let i = 0; i<arreglo1.length; i++){
+   for (let x = 0; x<arreglo2.length; x++){
+     if (arreglo1[i] === arreglo2[x]){
+       arregloDefinitivo.push(arreglo1[i]);
+     }
+   }
+ }
+return arregloDefinitivo
+
 }
 
 
@@ -83,4 +176,3 @@ module.exports = {
    sortArray,
    buscoInterseccion,
 };
-
