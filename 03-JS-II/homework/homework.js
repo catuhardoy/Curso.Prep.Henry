@@ -123,7 +123,11 @@ function esEntero(numero) {
   } else{
     return false
   }
-  
+  // otra manera
+  // if (numero === Math.floor(numero)){
+  //   return true
+  // }
+  // return false;
 
 
 }
@@ -179,15 +183,15 @@ function esPrimo(numero) {
   // Pista: un número primo solo es divisible por sí mismo y por 1
   // Pista 2: Puedes resolverlo usando un bucle `for`
   // Nota: Los números 0 y 1 NO son considerados números primos
-  for (let i = 2 ; i < numero ; i++){
-    if (numero === 0 || numero ===1){
-      return false
+  if (numero === 0 || numero === 1){
+    return false
+  }
+  for (var i = 2 ; i < numero ; i++){
+    if (numero % i === 0){
+      return false;
     }
-   else if (numero % i === 0){
-     return false
     }
-      return true
-    }
+    return true;
   }
 
 
@@ -206,14 +210,13 @@ function tablaDelSeis(){
   //Escribe una función que muestre la tabla de multiplicar del 6 (del 0 al 60).
   //La función devuelve un array con los resultados de la tabla de multiplicar del 6 en orden creciente.
   //Escribe tu código aquí 
-  let tabla = 6;
+  // let tabla = 6;
   let arreglo = []
   for (let i = 0 ; i<= 10 ; i++){
-    arreglo.push (tabla * i )
-    return arreglo
+    arreglo.push (6 * i )
     
   }
-
+  return arreglo
 }
 
 
@@ -226,18 +229,46 @@ function tieneTresDigitos(numero){
   return false
   
 }
+// tmb se puede transformar en string el numero
+// var string = numero.toString()
+// if (numero = string.length){
+//   return true
+// }
+// 
+// 
+// 
 
 function doWhile(numero){
-  let i = 0
-  //Implementar una función tal que vaya aumentando el valor recibido en 5 hasta un límite de 8 veces
-  //Retornar el valor final.
-  //Usar el bucle do ... while.
-do {
- numero += 5; 
- i ++
-} while (i <= 8);
-return numero
-} 
+//   let i = 1
+//   //Implementar una función tal que vaya aumentando el valor recibido en 5 hasta un límite de 8 veces
+//   //Retornar el valor final.
+//   //Usar el bucle do ... while.
+// do {
+//  numero += 5; 
+//  i ++
+// } while (i <= 8);
+// return numero
+// } 
+
+
+let contador = 8
+let i = 0
+do{
+  i = i+5;
+  contador = contador -1
+}
+while (contador !==0)
+return numero +i
+// var i = 1;
+// var resultado = numero
+
+// do {
+//   if (i !==8 ){
+//     resultado = numero += 5;
+
+//   }
+
+}
 
 
 
