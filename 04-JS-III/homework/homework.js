@@ -1,5 +1,7 @@
 // No cambies los nombres de las funciones.
 
+const { clear } = require("@11ty/eleventy/src/TemplateCache");
+
 
 arreglo =["hola", 9 , true, "que tal"]
 function devolverPrimerElemento(array) {
@@ -107,6 +109,13 @@ function promedioResultadosTest(resultadosTest) {
 }
 return suma/resultadosTest.length 
 }
+// var promedio = 0
+// var suma = 0
+// for (let i = 0; i< resultadosTest; i++){
+//     promedio = (suma += resultadosTest[i])/ resultadosTest.length
+// }
+// return promedio
+// }  
 
 
 let numeros = [3, 5, 9, 12, 9]
@@ -115,7 +124,7 @@ function numeroMasGrande(numeros) {
   // "numeros" debe ser una matriz de enteros (int/integers)
   // Devuelve el número más grande
   // Tu código:
-  for (let i = 0; i< numeros.length; i++){
+  for (let i = 1; i< numeros.length; i++){
     if (elMasGrande < numeros [i]){
       elMasGrande = numeros[i]
     }
@@ -149,11 +158,10 @@ function cuentoElementos(arreglo){
   let contador = 0;
   for (let i = 0 ; i < arreglo.length ; i++){
     if (arreglo[i] > 18){
-      contador ++;
+      contador = contador + 1;
     }
-    return contador;
   }
-
+  return contador;
 }
 
 
@@ -219,13 +227,13 @@ function mesesDelAño(array) {
   }
 
 
-let array = [3, 5, 120, 300, 59, 876]
+// let array = [3, 5, 120, 300, 59, 876]
 function mayorACien(array) {
   //La función recibe un array con enteros entre 0 y 200. Recorrer el array y guardar en un nuevo array sólo los
   //valores mayores a 100 (no incluye el 100). Finalmente devolver el nuevo array.
   // Tu código:
   let mayoresACien = []
-  for (let i = 0; i < array.length; i++){
+  for (var i = 0; i < array.length; i++){
     if (array [i] > 100 ){
       mayoresACien.push(array[i]); 
   } 
@@ -243,24 +251,23 @@ function breakStatement(numero) {
   //Pista: usá el statement 'break'
   // Tu código:
   
-  nuevoArray = []
-  let i = 0
-  do{
-    numero += 2;
-    if (numero === i){
-    break;
-    }
-    i++;
-    return "Se interrumpió la ejecución"
-  } 
+  var nuevoArray = []
+  var suma = numero
 
-  while (i <= 10){
-    nuevoArray.push(numero)
+  for (var i = 0; i<10; i++) {
+    suma = suma + 2
+  if (suma === i) break;
+  else{
+    nuevoArray.push(suma)
+    }
+  if (i<10){
+    return "Se interrumpió la ejecución"
+  }else{
+    return nuevoArray
+    }
   }
-  return nuevoArray
-  }
- 
-  
+}
+
 
 function continueStatement(numero) {
   //Iterar en un bucle aumentando en 2 el numero recibido hasta un límite de 10 veces.
@@ -269,12 +276,18 @@ function continueStatement(numero) {
   //Cuando el número de iteraciones alcance el valor 5, no se suma en ese caso y se continua con la siguiente iteración
   //Pista: usá el statement 'continue'
   // Tu código:
-  do{
-    numero += 2;
-    i++
-  }
-  while (i <= 10);
+var nuevoArray = []
+var suma = numero
 
+for (var i = 0; i < 10; i++){
+  if (i === 5) 
+continue
+else{
+  suma = suma + 2
+  nuevoArray.push(suma)
+    }
+  } 
+  return nuevoArray
 }
 
 

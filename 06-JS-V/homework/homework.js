@@ -47,6 +47,7 @@ return stringInvertida
    
  
 }
+// return this.split("").reverse.join("")
 
 // ---------------------------------------------------------------------------//
   //Crea el constructor de la clase "Persona"
@@ -81,11 +82,12 @@ return stringInvertida
 // porque no es RETURN PERSONA?
 
 function crearInstanciaPersona(nombre, apellido, edad, dir) {
-  let persona = new Persona("Juan", "Perez", 22, "Saavedra 123" );
-  return persona
+  
   //Con esta función vamos a crear una nueva persona a partir de nuestro constructor de persona (creado en el ejercicio anterior)
   //Recibirá los valores "Juan", "Perez", 22, "Saavedra 123" para sus respectivas propiedades
   //Devolver la nueva persona creada
+  let persona = new Persona(nombre, apellido, edad, dir );
+  return persona
 }
 
 
