@@ -86,11 +86,16 @@ function filter(array) {
     if (array[i][0] === "a"){
       nuevoArray.push(array[i])
     }
-   
   }
   return nuevoArray
 }
+  // return nuevoArray
 
+//  var nuevoArray = array.filter(function(e){
+//    return e[0] === "a"
+//  })
+//  return nuevoArray
+// }
 
 // No modificar nada debajo de esta línea
 // --------------------------------
