@@ -162,11 +162,6 @@ function pasarUsuarioAPremium (usuarios) {
  
 
 
-
-
-
-
-
   // for (let i = 0; i<usuarios.length; i++){
   //   usuarios[i].esPremium =true
   //   }
