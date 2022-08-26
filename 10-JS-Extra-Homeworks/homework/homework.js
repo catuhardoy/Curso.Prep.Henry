@@ -11,12 +11,22 @@ function deObjetoAmatriz(objeto){
     }) ➞ [["D", 1], ["B", 2], ["C", 3]]*/
     // en el push entro a el valor del objeto objeto[clave]
   //Escribe tu código aquí
+  // var nuevoArray = []
+  // for (let clave in objeto){
+  //   nuevoArray.push ([clave ,objeto[clave]])
+  // }
+  // return nuevoArray
+
+  var arr = [1, 2, 3, 4];
+  console.log(arr[0]);
   var nuevoArray = [];
-  for (clave in objeto){
-    nuevoArray.push([clave, objeto[clave]])
+  for (let clave in objeto){
+    nuevoArray.push([clave, objeto[clave]])   
+    // nuevoArray[clave]
   }
 return nuevoArray
 }
+// no entiendo los corchetes de clave
 
 
 function numberOfCharacters(string) {
@@ -24,15 +34,38 @@ function numberOfCharacters(string) {
   //en formato par clave-valor.
   //Ej: Recibe ---> "adsjfdsfsfjsdjfhacabcsbajda" || Devuelve ---> { a: 5, b: 2, c: 2, d: 4, f: 4, h:1, j: 4, s: 5 } 
   //Escribe tu código aquí
+// string = "que tul"
   nuevoObjeto = {}
-  for (let i = 0; i < string.length; i++){
-    if (!nuevoObjeto[string[i]]){
-      nuevoObjeto[string[i]] = 0
+
+  
+  for (let i = 0; i< string.length ; i++){
+    var caracter = string[i]; // string[i]
+
+    if (!nuevoObjeto[caracter]) {
+      nuevoObjeto[caracter] = 0;
     }
-    nuevoObjeto[string[i]] += 1
+
+    nuevoObjeto[caracter]++;
   }
-return nuevoObjeto
+
+  return nuevoObjeto
 }
+
+  // }
+ 
+
+
+
+
+//   nuevoObjeto = {}
+//   for (let i = 0; i < string.length; i++){
+//     if (!nuevoObjeto[string[i]]){
+//       nuevoObjeto[string[i]] = 0
+//     }
+//     nuevoObjeto[string[i]] += 1
+//   }
+// return nuevoObjeto
+// }
 
 
 function capToFront(s) {
@@ -40,34 +73,87 @@ function capToFront(s) {
   //al principio de la palabra.
   //Ejemplo: soyHENRY -> HENRYsoy
   //Escribe tu código aquí
-  var mayusculas = ""
   var minusculas = ""
-  for (let i = 0 ; i<s.length; i++){
-    if (s[i] === s[i].toUpperCase()){
-
-   var mayusculas = mayusculas + s[i]
-  //  el string mayuscula es igual al string vacio mas la letra que le sumamos.
-  } else{ 
-  var minusculas = minusculas + s[i];
+  var mayusculas = ""
+  for (let i =0; i<s.length; i++) {
+    if (s[i] === s[i].toUpperCase() ){
+      mayusculas = mayusculas + s[i]
+    }
+    else {
+      minusculas = minusculas + s[i]
+    }
   }
+
+  return mayusculas + minusculas
 }
-return mayusculas + minusculas
-}
+
+
+
+
+
+//   var mayusculas = ""
+//   var minusculas = ""
+//   for (let i = 0 ; i<s.length; i++){
+//     if (s[i] === s[i].toUpperCase()){
+
+//    var mayusculas = mayusculas + s[i]
+//   //  el string mayuscula es igual al string vacio mas la letra que le sumamos.
+//   } else{ 
+//   var minusculas = minusculas + s[i];
+//   }
+// }
+// return mayusculas + minusculas
+// }
 
 
 function asAmirror(str) {
+//   //La función recibe una frase. 
+//   //Escribe una función que tome la frase recibida y la devuelva de modo tal que se pueda leer de izquierda a derecha 
+//   //pero con cada una de sus palabras invertidas, como si fuera un espejo.
+//   //Ej: Recibe ---> "The Henry Challenge is close!" || Devuelve ---> "ehT yrneH egnellahC si !esolc"
+//   //Escribe tu código aquí
+  let palabras = str.split(" ")
+  for (let i = 0; i < palabras.length; i++){
+    palabras[i] = palabras[i].split("").reverse().join("");
+  }
+
+  return palabras.join(" ")
+}
+  
+// }
+
+// function asAmirror(str) {
   //La función recibe una frase. 
   //Escribe una función que tome la frase recibida y la devuelva de modo tal que se pueda leer de izquierda a derecha 
   //pero con cada una de sus palabras invertidas, como si fuera un espejo.
   //Ej: Recibe ---> "The Henry Challenge is close!" || Devuelve ---> "ehT yrneH egnellahC si !esolc"
   //Escribe tu código aquí
+//   let palabras = str.split(" ")
+//   let ret = []
+  
+//   for (let i = 0; i < palabras.length; i++){
+//     let palabra = palabras[i]
+//     let palabraInvertida = ""
 
-    var fraseInvertida = ""
-  for (let i = str.length-1; i>= 0; i--){
-    fraseInvertida += str[i]
-  }
-  return fraseInvertida.split(" ").reverse().join(" ")
-}
+//     for (let j = palabra.length - 1 ; j>=0 ; j--){
+//       palabraInvertida = palabraInvertida + palabra[j]
+//     }
+
+//     ret.push(palabraInvertida)
+//   }
+
+//   return ret.join(" ")
+  
+// }
+
+
+
+//  var fraseInvertida = ""
+//   for (let i = str.length-1; i>= 0; i--){
+//     fraseInvertida += str[i]
+//   }
+//   return fraseInvertida.split(" ").reverse().join(" ")
+// }
 
   
 
@@ -86,33 +172,57 @@ function capicua(numero){
   //La misma debe retornar: "Es capicua" si el número se número que se lee igual de 
   //izquierda a derecha que de derecha a izquierda. Caso contrario retorna "No es capicua"
   //Escribe tu código aquí
-  var miNumero = numero.toString()
-  var numeroInvertido = numero.toString().split("").reverse().join("");
+//   var miNumero = numero.toString()
+//   var numeroInvertido = numero.toString().split("").reverse().join("");
   
-    if ( miNumero === numeroInvertido){
-      return "Es capicua"
-    } else{
-      return "No es capicua"
-    }
+//     if ( miNumero === numeroInvertido){
+//       return "Es capicua"
+//     } else{
+//       return "No es capicua"
+//     }
+// }
+
+var string = numero.toString() ;
+var numeroInvertido = ""; 
+for (var i = string.length -1 ; i>= 0; i--){
+  numeroInvertido = numeroInvertido + string [i]
 }
+if (string === numeroInvertido){
+  return "Es capicua"
+}else{
+  return "No es capicua"
+}
+}
+
+
+
+
 
 
 function deleteAbc(cadena){
   //Define una función que elimine las letras "a", "b" y "c" de la cadena dada 
   //y devuelva la versión modificada o la misma cadena, en caso de contener dichas letras.
   //Escribe tu código aquí
-var sinAbc = "";
-for (let i = 0; i< cadena.length; i++){
-  if (cadena[i] === "a" || cadena[i] === "b" || cadena[i] === "c"){
-    continue;
-  }else{
-    sinAbc = sinAbc + cadena[i]
-  }
-}
-return sinAbc
-}
+// var sinAbc = "";
+// for (let i = 0; i< cadena.length; i++){
+//   if (cadena[i] === "a" || cadena[i] === "b" || cadena[i] === "c"){
+//     continue;
+//   }else{
+//     sinAbc = sinAbc + cadena[i]
+//   }
+// }
+// return sinAbc
+// }
 
+var nuevaCadena = ""
+for( var i = 0; i< cadena.length; i++){
+  if (cadena [i] !== "a" && cadena [i]!== "b" && cadena [i]!== "c"){
+  nuevaCadena = nuevaCadena + cadena[i]
 
+  } 
+}
+return nuevaCadena
+}
 
 
 
@@ -120,24 +230,20 @@ function sortArray(arr) {
   //La función recibe una matriz de strings. Ordena la matriz en orden creciente de longitudes de cadena
   //Ej: Recibe ---> ["You", "are", "beautiful", "looking"] || Devuelve ---> [“You", "are", "looking", "beautiful"]
   //Escribe tu código aquí
-  // nuevoArray = [arr]
-  // nuevoArray.forEach(function(elemento){
-  //   elemento.length
-  // }
+  arr.sort(function(a, b){
+    if (a.length>b.length){
+      return 1;
+    }
+    if (a.length<b.length){
+      return -1
+    }
+    if (a.length === b.length){
+      return 0
+    }
+  });
+  return arr
   
-//   function ordenCreciente (a, b){
-//     if (a.length < b.length) return -1;
-
-//     if (a.length > b.length) return 1;
-
-//     if (a.length = b.length) return 0
-//   }
-//   return arr.sort(function(a, b))
-
-//   // for (var i=0; i<arr.length -1; i++){
-//   //   if (arr[i].length < arr[i + 1].length)
-//   // }
-}
+} 
 
 
 function buscoInterseccion(arreglo1, arreglo2){
